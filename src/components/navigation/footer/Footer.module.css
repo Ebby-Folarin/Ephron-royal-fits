@@ -38,10 +38,11 @@
     transform: translateX(-50%);
   }
 }
-  .bg-navy {
-    background-color: #001f3f; /* Navy blue hex code */
-    color: white; /* optional: to make text readable */
-  }
+
+.bg-navy {
+  background-color: #001f3f; /* Navy blue hex code */
+  color: white; /* optional: to make text readable */
+}
 
 .icon-hover {
   display: inline-block;
@@ -57,5 +58,132 @@
 .icon-hover:active {
   transform: translateY(0);
   transition: all 0.1s ease-in-out;
+}
+
+/* New ASOS-style footer styles */
+.footer {
+  font-family: 'Arial', sans-serif;
+  color: #2d2d2d;
+  background-color: #f8f8f8;
+}
+
+.footerMain {
+  padding: 40px 0;
+  background-color: #eee;
+}
+
+.footerHeading {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLinks li {
+  margin-bottom: 10px;
+}
+
+.footerLink {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: #000;
+}
+
+.countrySelector {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.currentCountry {
+  font-weight: 600;
+}
+
+.changeLink {
+  color: #666;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.changeLink:hover {
+  text-decoration: underline;
+}
+
+.internationalSites {
+  margin-top: 20px;
+}
+
+.smallText {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.flagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flagLink {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.socialLink {
+  display: inline-block;
+}
+
+.paymentMethods {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.paymentIcon {
+  display: inline-block;
+}
+
+.footerBottom {
+  background-color: #2d2d2d;
+  color: #fff;
+  font-size: 12px;
+}
+
+.copyright {
+  margin: 0;
+}
+
+.footerBottomLink {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footerBottomLink:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  color: #666;
+  margin: 0 5px;
 }
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "@/components/navigation/footer/Footer.module.css";
-import { Call, Camera, DirectSend, Instagram, Location } from "iconsax-react";
+import { Call, DirectSend } from "iconsax-react";
 import Loader from "@/components/loader/loader";
 import { doc, setDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase/fire_config";
@@ -32,241 +32,105 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ fontSize: 14, fontFamily: "'Julius Sans One', sans-serif" }}>
-      <section>
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6 text-center">
-              <div className="py-4">
-                <Link
-                  href="https://www.facebook.com/profile.php?id=61565968947843&mibextid=LQQJ4d"
-                  target="_blank"
-                  className="me-5"
-                >
+    <footer className={styles.footer}>
+      {/* Main Footer Content */}
+      <div className={styles.footerMain}>
+        <div className="container py-5">
+          <div className="row">
+            {/* HELP & INFORMATION */}
+            <div className="col-md-3 mb-4">
+              <h6 className={styles.footerHeading}>HELP & INFORMATION</h6>
+              <ul className={styles.footerLinks}>
+                <li><Link href="/help" className={styles.footerLink}>Help</Link></li>
+                <li><Link href="/track-order" className={styles.footerLink}>Track order</Link></li>
+                <li><Link href="/delivery-returns" className={styles.footerLink}>Delivery & returns</Link></li>
+                <li><Link href="/sitemap" className={styles.footerLink}>Sitemap</Link></li>
+              </ul>
+            </div>
+
+            {/* ABOUT EPHRON ROYAL FITS */}
+            <div className="col-md-3 mb-4">
+              <h6 className={styles.footerHeading}>ABOUT EPHRON ROYAL FITS</h6>
+              <ul className={styles.footerLinks}>
+                <li><Link href="/about" className={styles.footerLink}>About us</Link></li>
+                <li><Link href="/careers" className={styles.footerLink}>Careers at Ephron Royal Fits</Link></li>
+                <li><Link href="/corporate-responsibility" className={styles.footerLink}>Corporate responsibility</Link></li>
+                <li><Link href="/investors" className={styles.footerLink}>Investors' site</Link></li>
+              </ul>
+            </div>
+
+            {/* MORE FROM EPHRON ROYAL FITS */}
+            <div className="col-md-3 mb-4">
+              <h6 className={styles.footerHeading}>MORE FROM EPHRON ROYAL FITS</h6>
+              <ul className={styles.footerLinks}>
+                <li><Link href="/mobile-apps" className={styles.footerLink}>Mobile and Ephron Royal Fits apps</Link></li>
+                <li><Link href="/gift-vouchers" className={styles.footerLink}>Gift vouchers</Link></li>
+                <li><Link href="/black-friday" className={styles.footerLink}>Black Friday</Link></li>
+                <li><Link href="/thrift" className={styles.footerLink}>Ephron Royal Fits x Thrift+</Link></li>
+              </ul>
+            </div>
+
+            {/* SHOPPING FROM */}
+            <div className="col-md-3 mb-4">
+              <h6 className={styles.footerHeading}>SHOPPING FROM:</h6>
+              <p className={styles.countrySelector}>You're in <span className={styles.currentCountry}>Nigeria</span> | <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
+              
+              <div className={styles.internationalSites}>
+                <p className={styles.smallText}>Some of our international sites:</p>
+                <div className={styles.flagsContainer}>
+                  {/* Add your country flags here */}
+                  <Link href="#" className={styles.flagLink}>
+                    <Image src="/images/flags/nigeria.png" alt="Nigeria" width={24} height={16} />
+                  </Link>
+                  {/* Add more flags as needed */}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Media and Payment Methods */}
+          <div className="row mt-5">
+            <div className="col-md-6 mb-4">
+              <div className={styles.socialIcons}>
+                <Link href="https://www.facebook.com/profile.php?id=61565968947843&mibextid=LQQJ4d" target="_blank" className={styles.socialLink}>
                   <Image src="/images/facebook.png" alt="facebook" width={30} height={30} className={styles["icon-hover"]} />
                 </Link>
-
-                <Link
-                  href="https://www.instagram.com/ephron_royal_fits"
-                  target="_blank"
-                  className="me-5"
-                >
-                  <Image
-                    src="/images/instagram.png"
-                    alt="instagram"
-                    width={30}
-                    height={30}
-                    className={styles["icon-hover"]}
-                  />
+                <Link href="https://www.instagram.com/ephron_royal_fits" target="_blank" className={styles.socialLink}>
+                  <Image src="/images/instagram.png" alt="instagram" width={30} height={30} className={styles["icon-hover"]} />
                 </Link>
-
-                <Link href="https://x.com/e_royalfits" target="_blank">
+                <Link href="https://x.com/e_royalfits" target="_blank" className={styles.socialLink}>
                   <Image src="/images/twitter.png" alt="twitter" width={30} height={30} className={styles["icon-hover"]} />
                 </Link>
               </div>
             </div>
-
-            <div className="col-md-6 text-center">
-              <div className="py-4">
-                <Image
-                  src="/images/paystack.png"
-                  alt="paystack"
-                  className={`me-4 ${styles["icon-hover"]}`}
-                  width={180}
-                  height={40}
-                />
-                <Image 
-                  src="/images/apple_pay.svg" 
-                  alt="apple pay" 
-                  width={80} 
-                  height={40} 
-                  className={styles["icon-hover"]} 
-                />
+            <div className="col-md-6 mb-4">
+              <div className={styles.paymentMethods}>
+                <Image src="/images/paystack.png" alt="paystack" className={styles.paymentIcon} width={120} height={30} />
+                <Image src="/images/apple_pay.svg" alt="apple pay" width={60} height={30} className={styles.paymentIcon} />
+                {/* Add more payment methods as needed */}
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="bg_blue_50">
-        <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-4 text-center">
-              <div className="py-4 d-flex justify-content-center align-items-center">
-                <Image src="/images/fashion.png" alt="fashion" width={20} height={20} />
-
-                <p className="ms-3 text-white fw-bold m-0">TOP FASHION</p>
-              </div>
-            </div>
-
-            <div className="col-md-4 text-center">
-              <div className="py-4 d-flex justify-content-center align-items-center">
-                <Image src="/images/delivery.png" alt="delivery" width={20} height={20} />
-
-                <p className="ms-3 text-white fw-bold m-0">SMOOTH DELIVERY</p>
-              </div>
-            </div>
-
-            <div className="col-md-4 text-center">
-              <div className="py-4 d-flex justify-content-center align-items-center">
-                <Image src="/images/support.png" alt="support" width={20} height={20} />
-
-                <p className="ms-3 text-white fw-bold m-0">EXELLENT SUPPORT</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className=" py-5"
-        style={{
-          background: "linear-gradient(135deg, #fffbe6 0%, #f7e7ce 100%)"
-        }}
-      >
-        <div className="container">
+      {/* Footer Bottom */}
+      <div className={styles.footerBottom}>
+        <div className="container py-3">
           <div className="row">
-            <div className="col-md-2">
-              <Image
-                src="/logo/png/logo_long.png"
-                alt="logo"
-                className="rounded"
-                width={150}
-                height={40}
-              />
+            <div className="col-md-6">
+              <p className={styles.copyright}>© 2023 Ephron Royal Fits</p>
             </div>
-
-            <div className="col-md-3">
-              <h6 className="fw-bold">CONTACT</h6>
-
-              <div className="mt-5 d-flex my-2">
-                <Call className="me-1 black" variant="Bulk" />
-                <div className="d-flex flex-column black me-1">
-                  <b>WhatsApp</b>
-                  <Link
-                    className="text-decoration-none black"
-                    href="https://wa.me/+2347063869144?text=I am contacting you from ERF to enquire about..."
-                    target="_blank"
-                  >
-                    +234-706-386-9144
-                  </Link>
-                </div>
-              </div>
-
-              <div className="d-flex my-2">
-                <DirectSend className="me-1 black" variant="Bulk" />
-                <div className="d-flex flex-column black me-1">
-                  <b>Email Us</b>
-                  <Link
-                    className="text-decoration-none black"
-                    href="mailto:ephronroyalfits@gmail.com"
-                    target="_blank"
-                  >
-                    ephronroyalfits@gmail.com
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3">
-              <h6 className="fw-bold">COMPANY</h6>
-
-              <ul className="mt-5 list-unstyled">
-                <li className="mb-3">
-                  <Link
-                    className="text-decoration-none black"
-                    href="https://wa.me/+2347063869144?text=I am contacting you from ERF to enquire about..."
-                    target="_blank"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-
-                <li className="mb-3">
-                  <Link className="text-decoration-none black" href="/privacy">
-                    Privacy Policy
-                  </Link>
-                </li>
-
-                <li className="mb-3">
-                  <Link className="text-decoration-none black" href="/terms">
-                    Terms And Conditions
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-4">
-              <div
-                className="p-3 bg-white shadow rounded-4 h-100"
-                style={{ minWidth: 250, minHeight: 240, maxWidth: 320, margin: '0 auto' }}
-              >
-                <h5
-                  className="fw-bold mb-2 text-center"
-                  style={{ color: "#1a1a1a", fontSize: 18 }}
-                >
-                  Contact Us
-                </h5>
-                <p
-                  className="text-muted mb-3 text-center"
-                  style={{ fontSize: 12 }}
-                >
-                  Have a question or feedback? Fill out the form below and we&apos;ll get back to you soon.
-                </p>
-                <form className="row g-2" onSubmit={onSendMessage}>
-                  <div className="col-12">
-                    <input
-                      type="text"
-                      className="form-control rounded-3 py-1 px-2"
-                      required
-                      placeholder="Full Name"
-                      onChange={(e) => setFullName(e.target.value)}
-                      style={{ border: "1px solid #e0e0e0", background: "#fafbfc", fontSize: 13 }}
-                    />
-                  </div>
-                  <div className="col-12">
-                    <input
-                      type="email"
-                      className="form-control rounded-3 py-1 px-2"
-                      required
-                      placeholder="Email Address"
-                      onChange={(e) => setEmail(e.target.value)}
-                      style={{ border: "1px solid #e0e0e0", background: "#fafbfc", fontSize: 13 }}
-                    />
-                  </div>
-                  <div className="col-12">
-                    <textarea
-                      className="form-control rounded-3 py-1 px-2"
-                      required
-                      placeholder="Message"
-                      style={{ height: "60px", border: "1px solid #e0e0e0", background: "#fafbfc", resize: "vertical", fontSize: 13 }}
-                      onChange={(e) => setMessage(e.target.value)}
-                    ></textarea>
-                  </div>
-                  <div className="col-12 d-grid mt-1">
-                    <button
-                      type="submit"
-                      disabled={sending}
-                      className={`btn ${styles.btn_nav} fw-bold rounded-3 py-1`}
-                      style={{ background: "#1a1a1a", color: "#fff", letterSpacing: 1, fontSize: 14 }}
-                    >
-                      {sending ? <Loader /> : "Submit"}
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <div className="row mt-5">
-            <div className="col text-center">
-              <Link className="text-muted text-decoration-none" href="/">
-                All rights reserved © www.ephronroyalfits.com
-              </Link>
+            <div className="col-md-6 text-md-end">
+              <Link href="/privacy" className={styles.footerBottomLink}>Privacy & Cookies</Link>
+              <span className={styles.divider}>|</span>
+              <Link href="/terms" className={styles.footerBottomLink}>T&Cs</Link>
+              <span className={styles.divider}>|</span>
+              <Link href="/accessibility" className={styles.footerBottomLink}>Accessibility</Link>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </footer>
   );
 }
