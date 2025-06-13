@@ -1,0 +1,34 @@
+.card_header {
+  font-weight: 500;
+  border-bottom: 1px gray solid;
+  padding-bottom: 1rem;
+  font-weight: bold;
+}
+
+.order_status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+
+.saved_order {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  border-radius: 0.25rem;
+  background: #947f57 !important;
+  border: none !important;
+}
+
+.saved_remove,
+.saved_remove:hover {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  background: transparent !important;
+  border: none !important;
+  color: red !important;
+}
