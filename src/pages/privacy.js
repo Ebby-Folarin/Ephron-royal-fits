@@ -117,30 +117,26 @@ export default function PrivacyPage() {
                 <li>
                   <b>Personal Information:</b>
                   <p>
-                    When you make a purchase, we collect information such as
-                    your name, billing address, shipping address, email address,
-                    and phone number. If you create an account, we may also
-                    store your username and password.
-                  </p>
-                </li>
-
-                <li>
-                  <b>Payment Information:</b>
-                  <p>
-                    To process payments, we collect your payment details,
-                    including card information. However, we do not store this
-                    information; it is securely processed through our payment
-                    gateway.
+                    we may collect your name, email address, phone number,
+                    shipping address, and payment information when you make a
+                    purchase or create an account.
                   </p>
                 </li>
 
                 <li>
                   <b>Browsing Information:</b>
                   <p>
-                    We automatically receive and store certain types of
-                    information when you interact with our website, such as your
-                    IP address, browser type, device information, and pages
-                    visited.
+                    we automatically collect information about your device, IP
+                    address, browser type, and how you interact with our website.
+                  </p>
+                </li>
+
+                <li>
+                  <b>Cookies and Similar Technologies:</b>
+                  <p>
+                    we use cookies and similar technologies to enhance your
+                    browsing experience and collect information about how you use
+                    our website.
                   </p>
                 </li>
               </ol>
@@ -148,56 +144,53 @@ export default function PrivacyPage() {
               <h5 className="mb-2 fw-bold">HOW WE USE YOUR INFORMATION:</h5>
               <ol>
                 <li>
-                  <b>Order Fulfilment:</b>
+                  <b>To Process Transactions:</b>
                   <p>
-                    We use your personal and payment information to process and
-                    fulfil your orders.
+                    we use your personal information to process orders, payments,
+                    and shipping.
                   </p>
                 </li>
 
                 <li>
-                  <b>Communication:</b>
+                  <b>To Provide Customer Service:</b>
                   <p>
-                    We may use your contact information to communicate with you
-                    about your orders, promotions, and updates related to our
-                    products and services.
+                    we use your contact information to respond to inquiries,
+                    provide support, and update you on your orders.
                   </p>
                 </li>
 
                 <li>
-                  <b>Account Management:</b>
+                  <b>To Improve Our Services:</b>
                   <p>
-                    If you create an account, we use your information to manage
-                    and secure your account.
+                    we analyze browsing information to enhance our website,
+                    products, and services.
                   </p>
                 </li>
 
                 <li>
-                  <b>Analytics:</b>
+                  <b>To Send Marketing Communications:</b>
                   <p>
-                    We use browsing information to analyse trends, track user
-                    activity, and improve our website&apos;s performance.
+                    with your consent, we may send you promotional emails about
+                    new products, special offers, or fashion tips.
                   </p>
                 </li>
               </ol>
 
-              <h5 className="mb-2 fw-bold">
-                SHARING YOUR INFORMATION DETAILS:
-              </h5>
+              <h5 className="mb-2 fw-bold">SHARING YOUR INFORMATION:</h5>
               <ol>
                 <li>
-                  <b>Other reasonable parties:</b>
+                  <b>Service Providers:</b>
                   <p>
-                    We may share your information with other reasonable service
-                    providers, such as shipping and payment processors, to
-                    facilitate order fulfilment.
+                    we may share your information with third-party service
+                    providers who help us with payment processing, shipping,
+                    customer service, and marketing.
                   </p>
                 </li>
 
                 <li>
-                  <b>Legal Compliance:</b>
+                  <b>Legal Requirements:</b>
                   <p>
-                    We may disclose your information when required by law or to
+                    we may disclose your information when required by law or to
                     protect our rights and comply with legal processes.
                   </p>
                 </li>
@@ -208,7 +201,7 @@ export default function PrivacyPage() {
                 <li>
                   <b>Account Information:</b>
                   <p>
-                    You can review and update your account information by
+                    you can review and update your account information by
                     logging into your account on our website.
                   </p>
                 </li>
@@ -216,7 +209,7 @@ export default function PrivacyPage() {
                 <li>
                   <b>Marketing and Other Commendable Communications:</b>
                   <p>
-                    You can opt-out of receiving fashion tips or ideas and
+                    you can opt-out of receiving fashion tips or ideas and
                     relevant promotional emails by following the instructions in
                     the emails or contacting us directly.
                   </p>
@@ -226,7 +219,7 @@ export default function PrivacyPage() {
               <h5 className="mb-2 fw-bold">SECURITY:</h5>
               <ol>
                 <li>
-                  We implement security measures to protect your information,
+                  we implement security measures to protect your information,
                   both during transmission and once it is received
                 </li>
               </ol>
@@ -234,8 +227,8 @@ export default function PrivacyPage() {
               <h5 className="mb-2 fw-bold">CONCERNING COOKIES:</h5>
               <ol>
                 <li>
-                  We use cookies to enhance your browsing experience and analyse
-                  website traffic. You can choose to disable cookies, but this
+                  we use cookies to enhance your browsing experience and analyse
+                  website traffic. you can choose to disable cookies, but this
                   may affect certain features of our website from your end.
                 </li>
               </ol>
@@ -245,7 +238,7 @@ export default function PrivacyPage() {
               </h5>
               <ol>
                 <li>
-                  We may update our Privacy Policy from time to time. Any
+                  we may update our privacy policy from time to time. any
                   changes will be posted on this page, and we encourage you to
                   review the policy periodically.
                 </li>
@@ -254,13 +247,13 @@ export default function PrivacyPage() {
               <h5 className="mb-2 fw-bold">CONTACT US:</h5>
               <ol>
                 <li>
-                  If you have any further questions or concerns about our
-                  Privacy Policy, please contact us at [your contact email/phone
+                  if you have any further questions or concerns about our
+                  privacy policy, please contact us at [your contact email/phone
                   number].
                 </li>
               </ol>
               
-              <b>Thank you for trusting EPHRON ROYAL &apos;FITS</b>
+              <b>thank you for trusting EPHRON ROYAL &apos;FITS</b>
             </div>
           </div>
         </div>

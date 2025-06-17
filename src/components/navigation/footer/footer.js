@@ -41,10 +41,10 @@ export default function Footer() {
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>HELP & INFORMATION</h6>
               <ul className={styles.footerLinks}>
-                <li><Link href="/help" className={styles.footerLink}>Help</Link></li>
-                <li><Link href="/track-order" className={styles.footerLink}>Track order</Link></li>
-                <li><Link href="/delivery-returns" className={styles.footerLink}>Delivery & returns</Link></li>
-                <li><Link href="/sitemap" className={styles.footerLink}>Sitemap</Link></li>
+                <li><Link href="/help" className={styles.footerLink}>help</Link></li>
+                <li><Link href="/track-order" className={styles.footerLink}>track order</Link></li>
+                <li><Link href="/delivery-returns" className={styles.footerLink}>delivery & returns</Link></li>
+                <li><Link href="/sitemap" className={styles.footerLink}>sitemap</Link></li>
               </ul>
             </div>
 
@@ -52,10 +52,10 @@ export default function Footer() {
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>ABOUT EPHRON ROYAL FITS</h6>
               <ul className={styles.footerLinks}>
-                <li><Link href="/about" className={styles.footerLink}>About us</Link></li>
-                <li><Link href="/careers" className={styles.footerLink}>Careers at Ephron Royal Fits</Link></li>
-                <li><Link href="/corporate-responsibility" className={styles.footerLink}>Corporate responsibility</Link></li>
-                <li><Link href="/investors" className={styles.footerLink}>Investors' site</Link></li>
+                <li><Link href="/about" className={styles.footerLink}>about us</Link></li>
+                <li><Link href="/careers" className={styles.footerLink}>careers at ephron royal fits</Link></li>
+                <li><Link href="/corporate-responsibility" className={styles.footerLink}>corporate responsibility</Link></li>
+                <li><Link href="/investors" className={styles.footerLink}>investors' site</Link></li>
               </ul>
             </div>
 
@@ -63,20 +63,20 @@ export default function Footer() {
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>MORE FROM EPHRON ROYAL FITS</h6>
               <ul className={styles.footerLinks}>
-                <li><Link href="/mobile-apps" className={styles.footerLink}>Mobile and Ephron Royal Fits apps</Link></li>
-                <li><Link href="/gift-vouchers" className={styles.footerLink}>Gift vouchers</Link></li>
-                <li><Link href="/black-friday" className={styles.footerLink}>Black Friday</Link></li>
-                <li><Link href="/thrift" className={styles.footerLink}>Ephron Royal Fits x Thrift+</Link></li>
+                <li><Link href="/mobile-apps" className={styles.footerLink}>mobile and ephron royal fits apps</Link></li>
+                <li><Link href="/gift-vouchers" className={styles.footerLink}>gift vouchers</Link></li>
+                <li><Link href="/black-friday" className={styles.footerLink}>black friday</Link></li>
+                <li><Link href="/thrift" className={styles.footerLink}>ephron royal fits x thrift+</Link></li>
               </ul>
             </div>
 
             {/* SHOPPING FROM */}
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>SHOPPING FROM:</h6>
-              <p className={styles.countrySelector}>You're in <span className={styles.currentCountry}>Nigeria</span> <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
+              <p className={styles.countrySelector}>you're in <span className={styles.currentCountry}>nigeria</span> <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
               
               <div className={styles.internationalSites}>
-                <p className={styles.smallText}>Our international sites:</p>
+                <p className={styles.smallText}>our international sites:</p>
                 <div className={styles.flagsContainer}>
                   <Link href="#" className={styles.flagLink}>
                     <Image src="/images/facebook.png" alt="Nigeria" width={24} height={16} style={{objectFit: 'cover'}} />
@@ -98,7 +98,7 @@ export default function Footer() {
                   <Call size={18} color="#57aecf" variant="Bold" className="me-2" />
                   <span className="fw-bold">+234-706-386-9144</span>
                 </div>
-                <p className="small text-muted">Customer support available Mon-Fri, 9am-5pm</p>
+                <p className="small text-muted">customer support available mon-fri, 9am-5pm</p>
               </div>
             </div>
           </div>
@@ -134,8 +134,8 @@ export default function Footer() {
         <div className="container py-4">
           <div className="row align-items-center">
             <div className="col-md-5">
-              <h4 className="fw-bold mb-3">Get In Touch</h4>
-              <p className="mb-4">Have questions or feedback? We'd love to hear from you!</p>
+              <h4 className="fw-bold mb-3">get in touch</h4>
+              <p className="mb-4">have questions or feedback? we'd love to hear from you!</p>
               <div className="d-flex align-items-center mb-3">
                 <DirectSend size={22} color="#57aecf" variant="Bold" className="me-3" />
                 <span>ephronroyalfits@gmail.com</span>
@@ -180,7 +180,7 @@ export default function Footer() {
                   </div>
                   <div className="col-12">
                     <button type="submit" className={styles.submitButton} disabled={sending}>
-                      {sending ? <Loader /> : "Send Message"}
+                      {sending ? <Loader /> : "send message"}
                     </button>
                   </div>
                 </div>
@@ -195,14 +195,14 @@ export default function Footer() {
         <div className="container py-3">
           <div className="row">
             <div className="col-md-6">
-              <p className={styles.copyright}>© 2023 Ephron Royal Fits. All Rights Reserved.</p>
+              <p className={styles.copyright}>© 2023 ephron royal fits. all rights reserved.</p>
             </div>
             <div className="col-md-6 text-md-end">
-              <Link href="/privacy" className={styles.footerBottomLink}>Privacy & Cookies</Link>
+              <Link href="/privacy" className={styles.footerBottomLink}>privacy & cookies</Link>
               <span className={styles.divider}>|</span>
-              <Link href="/terms" className={styles.footerBottomLink}>T&Cs</Link>
+              <Link href="/terms" className={styles.footerBottomLink}>t&cs</Link>
               <span className={styles.divider}>|</span>
-              <Link href="/accessibility" className={styles.footerBottomLink}>Accessibility</Link>
+              <Link href="/accessibility" className={styles.footerBottomLink}>accessibility</Link>
             </div>
           </div>
         </div>

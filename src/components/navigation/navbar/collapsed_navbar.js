@@ -106,18 +106,22 @@ export default function CollapsedNavbar({ totalCart, emitShowSearch }) {
               cat.sub.length > 0 ? (
                 <li key={cat.id} className="my-2 blue">
                   <button
-                    className="w-100 text-start btn p-0 border-0 rounded-0"
+                    className="w-100 text-start btn p-0 border-0 rounded-0 d-flex justify-content-between align-items-center"
                     type="button"
-                    id={`cat${cat.id}`}
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                    onClick={() => {
+                      const dropdown = document.querySelector(`#dropdown-${cat.id}`);
+                      if (dropdown) {
+                        dropdown.classList.toggle('show');
+                      }
+                    }}
                   >
                     {cat.name} <ArrowDown3 size={12} variant="Bulk" />
                   </button>
 
                   <ul
+                    id={`dropdown-${cat.id}`}
                     className="dropdown-menu rounded-0"
-                    aria-labelledby={`cat${cat.id}`}
+                    style={{ position: 'static', width: '100%', border: 'none', padding: '0.5rem 0 0.5rem 1rem' }}
                   >
                     {cat.sub.map((sub, index) => (
                       <li
