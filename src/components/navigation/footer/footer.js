@@ -73,17 +73,32 @@ export default function Footer() {
             {/* SHOPPING FROM */}
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>SHOPPING FROM:</h6>
-              <p className={styles.countrySelector}>You're in <span className={styles.currentCountry}>Nigeria</span> | <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
+              <p className={styles.countrySelector}>You're in <span className={styles.currentCountry}>Nigeria</span> <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
               
               <div className={styles.internationalSites}>
-                <p className={styles.smallText}>Some of our international sites:</p>
+                <p className={styles.smallText}>Our international sites:</p>
                 <div className={styles.flagsContainer}>
-                  {/* Add your country flags here */}
                   <Link href="#" className={styles.flagLink}>
-                    <Image src="/images/flags/nigeria.png" alt="Nigeria" width={24} height={16} />
+                    <Image src="/images/facebook.png" alt="Nigeria" width={24} height={16} style={{objectFit: 'cover'}} />
                   </Link>
-                  {/* Add more flags as needed */}
+                  <Link href="#" className={styles.flagLink}>
+                    <Image src="/images/instagram.png" alt="United States" width={24} height={16} style={{objectFit: 'cover'}} />
+                  </Link>
+                  <Link href="#" className={styles.flagLink}>
+                    <Image src="/images/twitter.png" alt="United Kingdom" width={24} height={16} style={{objectFit: 'cover'}} />
+                  </Link>
+                  <Link href="#" className={styles.flagLink}>
+                    <Image src="/images/paystack.png" alt="Canada" width={24} height={16} style={{objectFit: 'cover'}} />
+                  </Link>
                 </div>
+              </div>
+              
+              <div className="mt-4">
+                <div className="d-flex align-items-center mb-2">
+                  <Call size={18} color="#57aecf" variant="Bold" className="me-2" />
+                  <span className="fw-bold">+234-706-386-9144</span>
+                </div>
+                <p className="small text-muted">Customer support available Mon-Fri, 9am-5pm</p>
               </div>
             </div>
           </div>
@@ -114,12 +129,73 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Contact Form Section */}
+      <div className={styles.contactSection}>
+        <div className="container py-4">
+          <div className="row align-items-center">
+            <div className="col-md-5">
+              <h4 className="fw-bold mb-3">Get In Touch</h4>
+              <p className="mb-4">Have questions or feedback? We'd love to hear from you!</p>
+              <div className="d-flex align-items-center mb-3">
+                <DirectSend size={22} color="#57aecf" variant="Bold" className="me-3" />
+                <span>ephronroyalfits@gmail.com</span>
+              </div>
+              <div className="d-flex align-items-center">
+                <Call size={22} color="#57aecf" variant="Bold" className="me-3" />
+                <span>+234-706-386-9144</span>
+              </div>
+            </div>
+            <div className="col-md-7">
+              <form onSubmit={onSendMessage} className={styles.contactForm}>
+                <div className="row g-3">
+                  <div className="col-md-6">
+                    <input 
+                      type="text" 
+                      className={`form-control ${styles.formInput}`} 
+                      placeholder="Full Name" 
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <input 
+                      type="email" 
+                      className={`form-control ${styles.formInput}`} 
+                      placeholder="Email Address" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="col-12">
+                    <textarea 
+                      className={`form-control ${styles.formInput}`} 
+                      placeholder="Your Message" 
+                      rows="3"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="col-12">
+                    <button type="submit" className={styles.submitButton} disabled={sending}>
+                      {sending ? <Loader /> : "Send Message"}
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Footer Bottom */}
       <div className={styles.footerBottom}>
         <div className="container py-3">
           <div className="row">
             <div className="col-md-6">
-              <p className={styles.copyright}>© 2023 Ephron Royal Fits</p>
+              <p className={styles.copyright}>© 2023 Ephron Royal Fits. All Rights Reserved.</p>
             </div>
             <div className="col-md-6 text-md-end">
               <Link href="/privacy" className={styles.footerBottomLink}>Privacy & Cookies</Link>
