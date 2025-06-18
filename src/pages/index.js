@@ -363,6 +363,53 @@ export default function HomePage() {
             color: white;
             letter-spacing: 3px;
           }
+          
+          /* New elegant styling for navbar and hero */
+          .navbar .nav-link, 
+          .navbar .dropdown-menu .d-flex,
+          .navbar .navbar-brand {
+            font-family: 'Julius Sans One', sans-serif;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+          }
+          
+          .navbar .nav-link:hover,
+          .navbar .dropdown-menu .d-flex:hover {
+            letter-spacing: 2px;
+          }
+          
+          /* Hero text styling */
+          .hero-overlay h3 {
+            font-family: 'Julius Sans One', sans-serif;
+            letter-spacing: 3px;
+            font-size: 1.5rem;
+            font-weight: 500 !important;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+          }
+          
+          .hero-overlay p {
+            font-family: 'Julius Sans One', sans-serif;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+          }
+          
+          /* Mobile navbar styling */
+          .collapsed_menu_header,
+          .collapsed_menu a {
+            font-family: 'Julius Sans One', sans-serif;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+          }
+          
+          .collapsed_menu a:hover {
+            letter-spacing: 2px;
+          }
         `}</style>
 
         <Products

@@ -33,6 +33,68 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
+      
+      {/* Contact Form Section */}
+      <div className={styles.contactSection}>
+        <div className="container py-4">
+          <div className="row align-items-center">
+            <div className="col-md-5">
+              <h4 className="fw-bold mb-3">Get in touch</h4>
+              <p className="mb-4">have questions or feedback? we&apos;d love to hear from you!</p>
+              <div className="d-flex align-items-center mb-3">
+                <DirectSend size={22} color="#57aecf" variant="Bold" className="me-3" />
+                <span>ephronroyalfits@gmail.com</span>
+              </div>
+              <div className="d-flex align-items-center">
+                <Call size={22} color="#57aecf" variant="Bold" className="me-3" />
+                <span>+234-706-386-9144</span>
+              </div>
+            </div>
+            <div className="col-md-7">
+              <form onSubmit={onSendMessage} className={styles.contactForm}>
+                <div className="row g-3">
+                  <div className="col-md-6">
+                    <input 
+                      type="text" 
+                      className={`form-control ${styles.formInput}`} 
+                      placeholder="Full Name" 
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <input 
+                      type="email" 
+                      className={`form-control ${styles.formInput}`} 
+                      placeholder="Email Address" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="col-12">
+                    <textarea 
+                      className={`form-control ${styles.formInput}`} 
+                      placeholder="Your Message" 
+                      rows="3"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="col-12">
+                    <button type="submit" className={styles.submitButton} disabled={sending}>
+                      {sending ? <Loader /> : "send message"}
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className={styles.footerMain}>
         <div className="container py-5">
@@ -129,66 +191,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Contact Form Section */}
-      <div className={styles.contactSection}>
-        <div className="container py-4">
-          <div className="row align-items-center">
-            <div className="col-md-5">
-              <h4 className="fw-bold mb-3">Get in touch</h4>
-              <p className="mb-4">have questions or feedback? we&apos;d love to hear from you!</p>
-              <div className="d-flex align-items-center mb-3">
-                <DirectSend size={22} color="#57aecf" variant="Bold" className="me-3" />
-                <span>ephronroyalfits@gmail.com</span>
-              </div>
-              <div className="d-flex align-items-center">
-                <Call size={22} color="#57aecf" variant="Bold" className="me-3" />
-                <span>+234-706-386-9144</span>
-              </div>
-            </div>
-            <div className="col-md-7">
-              <form onSubmit={onSendMessage} className={styles.contactForm}>
-                <div className="row g-3">
-                  <div className="col-md-6">
-                    <input 
-                      type="text" 
-                      className={`form-control ${styles.formInput}`} 
-                      placeholder="Full Name" 
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <input 
-                      type="email" 
-                      className={`form-control ${styles.formInput}`} 
-                      placeholder="Email Address" 
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="col-12">
-                    <textarea 
-                      className={`form-control ${styles.formInput}`} 
-                      placeholder="Your Message" 
-                      rows="3"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
-                    ></textarea>
-                  </div>
-                  <div className="col-12">
-                    <button type="submit" className={styles.submitButton} disabled={sending}>
-                      {sending ? <Loader /> : "send message"}
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Footer Bottom */}
       <div className={styles.footerBottom}>
