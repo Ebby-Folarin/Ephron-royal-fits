@@ -134,7 +134,7 @@ export default function Footer() {
         <div className="container py-4">
           <div className="row align-items-center">
             <div className="col-md-5">
-              <h4 className="fw-bold mb-3">get in touch</h4>
+              <h4 className="fw-bold mb-3">Get in touch</h4>
               <p className="mb-4">have questions or feedback? we&apos;d love to hear from you!</p>
               <div className="d-flex align-items-center mb-3">
                 <DirectSend size={22} color="#57aecf" variant="Bold" className="me-3" />

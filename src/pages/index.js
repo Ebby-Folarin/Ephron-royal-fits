@@ -104,6 +104,7 @@ export default function HomePage() {
             width: 'max-content',
             animation: 'scroll-x 20s linear infinite',
             gap: '1rem',
+            cursor: 'grab',
           }}>
             {/* Duplicate the set for infinite loop effect */}
             {[1,2].map(function(dup) {
@@ -119,9 +120,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-white fw-bold px-2">
-                        SUNGLASSES
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">SUNGLASSES</span>
+                      </div>
                     </Link>
                   </div>
                   <div className="category-card position-relative ms-1 mb-2 mx-md-1" style={{ minWidth: 220 }}>
@@ -134,9 +135,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-dark fw-bold px-2">
-                        TEES
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text dark">TEES</span>
+                      </div>
                     </Link>
                   </div>
                   <div className="category-card position-relative me-1 mb-2 mx-md-1" style={{ minWidth: 220 }}>
@@ -149,9 +150,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-white fw-bold px-2">
-                        RINGS
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">RINGS</span>
+                      </div>
                     </Link>
                   </div>
                   <div className="category-card position-relative ms-1 mb-2" style={{ minWidth: 220 }}>
@@ -164,9 +165,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-white fw-bold px-2">
-                        POLOS
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">POLOS</span>
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -181,6 +182,38 @@ export default function HomePage() {
           }
           .category-carousel::-webkit-scrollbar {
             display: none;
+          }
+          .category-carousel {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          .category-carousel:hover {
+            animation-play-state: paused;
+          }
+          .category-label {
+            background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.65) 100%);
+            width: 100%;
+            margin: 0;
+            padding-bottom: 0.75rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            transition: background 0.3s;
+          }
+          .category-text {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: white;
+            text-transform: uppercase;
+            font-family: 'Julius Sans One', sans-serif;
+          }
+          .category-text.dark {
+            color: #333;
+          }
+          .category-card:hover .category-label {
+            background: linear-gradient(180deg, rgba(87,174,207,0.0) 0%, rgba(87,174,207,0.85) 100%);
+          }
+          .category-card:hover .category-text {
+            color: white;
           }
         `}</style>
 
@@ -242,6 +275,7 @@ export default function HomePage() {
               display: 'flex',
               alignItems: 'stretch',
               gap: '1rem',
+              cursor: 'grab',
             }}
           >
             {/* Duplicate the set for infinite loop effect */}
@@ -258,9 +292,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-muted fw-bold px-2">
-                        SWEATSHIRTS
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">SWEATSHIRTS</span>
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -275,9 +309,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-muted fw-bold px-2">
-                        NECKLACES
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">NECKLACES</span>
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -292,9 +326,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-muted fw-bold px-2">
-                        HOODIES
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">HOODIES</span>
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -309,9 +343,9 @@ export default function HomePage() {
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
-                      <h5 className="position-absolute bottom-0 text-muted fw-bold px-2">
-                        BAGS
-                      </h5>
+                      <div className="position-absolute bottom-0 w-100 px-2 py-2 category-label">
+                        <span className="category-text">BAGS</span>
+                      </div>
                     </Link>
                   </div>
                 </div>
