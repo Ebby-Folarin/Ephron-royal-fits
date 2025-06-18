@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "@/components/navigation/navbar/navbar";
 import Footer from "@/components/navigation/footer/footer";
 import { getWSSchema, getWPSchema, getLBSchema } from "@/components/schema";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SearchBox from "@/components/search/search";
 import Hero from "@/components/home/hero";
 import Products from "@/components/products/products";
@@ -11,6 +11,101 @@ import Link from "next/link";
 export default function HomePage() {
   const [showSearch, setShowSearch] = useState(false);
   const handleShowSearch = (state) => setShowSearch(state);
+  
+  // Refs for the carousels
+  const topCarouselRef = useRef(null);
+  const bottomCarouselRef = useRef(null);
+
+  // State for tracking drag
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Function to handle mouse down event
+  const handleMouseDown = (e, carouselRef) => {
+    if (!carouselRef.current) return;
+    
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+    
+    // Pause animation while dragging
+    carouselRef.current.style.animationPlayState = 'paused';
+  };
+
+  // Function to handle mouse leave event
+  const handleMouseLeave = (carouselRef) => {
+    if (!isDragging) return;
+    
+    setIsDragging(false);
+    
+    // Resume animation
+    if (carouselRef.current) {
+      carouselRef.current.style.animationPlayState = 'running';
+    }
+  };
+
+  // Function to handle mouse up event
+  const handleMouseUp = (carouselRef) => {
+    if (!isDragging) return;
+    
+    setIsDragging(false);
+    
+    // Resume animation
+    if (carouselRef.current) {
+      carouselRef.current.style.animationPlayState = 'running';
+    }
+  };
+
+  // Function to handle mouse move event
+  const handleMouseMove = (e, carouselRef) => {
+    if (!isDragging || !carouselRef.current) return;
+    
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Add event listeners when component mounts
+  useEffect(() => {
+    const topCarousel = topCarouselRef.current;
+    const bottomCarousel = bottomCarouselRef.current;
+
+    if (topCarousel) {
+      topCarousel.addEventListener('mouseenter', () => {
+        topCarousel.style.animationPlayState = 'paused';
+      });
+      topCarousel.addEventListener('mouseleave', () => {
+        if (!isDragging) {
+          topCarousel.style.animationPlayState = 'running';
+        }
+      });
+    }
+
+    if (bottomCarousel) {
+      bottomCarousel.addEventListener('mouseenter', () => {
+        bottomCarousel.style.animationPlayState = 'paused';
+      });
+      bottomCarousel.addEventListener('mouseleave', () => {
+        if (!isDragging) {
+          bottomCarousel.style.animationPlayState = 'running';
+        }
+      });
+    }
+
+    return () => {
+      // Clean up event listeners
+      if (topCarousel) {
+        topCarousel.removeEventListener('mouseenter', () => {});
+        topCarousel.removeEventListener('mouseleave', () => {});
+      }
+      if (bottomCarousel) {
+        bottomCarousel.removeEventListener('mouseenter', () => {});
+        bottomCarousel.removeEventListener('mouseleave', () => {});
+      }
+    };
+  }, [isDragging]);
 
   // page default data
   const pageName = "Ephron Royal 'fits | Art & Fashion";
@@ -99,13 +194,22 @@ export default function HomePage() {
         <Hero />
 
         {/* Horizontal scrolling category carousel */}
+
         <div className="category-carousel-wrapper position-relative w-100 my-2" style={{ overflow: 'hidden' }}>
-          <div className="category-carousel d-flex align-items-stretch" style={{
-            width: 'max-content',
-            animation: 'scroll-x 20s linear infinite',
-            gap: '1rem',
-            cursor: 'grab',
-          }}>
+          <div 
+            ref={topCarouselRef}
+            className="category-carousel d-flex align-items-stretch" 
+            style={{
+              width: 'max-content',
+              animation: 'scroll-x 20s linear infinite',
+              gap: '1rem',
+              cursor: isDragging ? 'grabbing' : 'grab',
+            }}
+            onMouseDown={(e) => handleMouseDown(e, topCarouselRef)}
+            onMouseLeave={() => handleMouseLeave(topCarouselRef)}
+            onMouseUp={() => handleMouseUp(topCarouselRef)}
+            onMouseMove={(e) => handleMouseMove(e, topCarouselRef)}
+          >
             {/* Duplicate the set for infinite loop effect */}
             {[1,2].map(function(dup) {
               return (
