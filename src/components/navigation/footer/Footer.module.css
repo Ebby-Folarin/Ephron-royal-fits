@@ -173,20 +173,21 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.socialLinks {
+.socialIcons {
   display: flex;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .socialLink {
   color: #333;
-  font-size: 1.2rem;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .socialLink:hover {
-  color: #57aecf;
   transform: translateY(-3px);
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
 }
@@ -194,8 +195,18 @@
 .paymentMethods {
   display: flex;
   gap: 15px;
-  margin-top: 20px;
+  margin-top: 10px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.paymentIcon {
+  transition: all 0.3s ease;
+}
+
+.paymentIcon:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .paymentMethod {
