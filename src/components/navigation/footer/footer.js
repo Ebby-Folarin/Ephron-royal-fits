@@ -197,7 +197,7 @@ export default function Footer() {
         <div className="container py-3">
           <div className="row">
             <div className="col-md-6">
-              <p className={styles.copyright}>© 2023 ephron royal fits. all rights reserved.</p>
+              <p className={styles.copyright}>© 2025 ephron royal fits. all rights reserved.</p>
             </div>
             <div className="col-md-6 text-md-end">
               <Link href="/privacy" className={styles.footerBottomLink}>privacy & cookies</Link>
