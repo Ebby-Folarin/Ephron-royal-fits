@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "@/components/navigation/navbar/Navbar.module.css";
 import { ArrowDown3, Bag2, Menu, SearchNormal1, User } from "iconsax-react";
 import { useAuth } from "@/firebase/fire_auth_context";
@@ -13,6 +13,30 @@ export default function CollapsedNavbar({ totalCart, emitShowSearch }) {
 
   // toggle slide navbar
   const toggleNavbar = () => setIsOpen(!isOpen);
+  
+  // Add custom styling for dropdowns
+  useEffect(() => {
+    // Add custom CSS to handle dropdown visibility
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .dropdown-menu.show {
+        display: block !important;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
+  // Function to toggle dropdown
+  const toggleDropdown = (id) => {
+    const dropdown = document.getElementById(`dropdown-${id}`);
+    if (dropdown) {
+      dropdown.classList.toggle('show');
+    }
+  };
 
   return (
     <>
@@ -106,18 +130,17 @@ export default function CollapsedNavbar({ totalCart, emitShowSearch }) {
               cat.sub.length > 0 ? (
                 <li key={cat.id} className="my-2 blue">
                   <button
-                    className="w-100 text-start btn p-0 border-0 rounded-0"
+                    className="w-100 text-start btn p-0 border-0 rounded-0 d-flex justify-content-between align-items-center"
                     type="button"
-                    id={`cat${cat.id}`}
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                    onClick={() => toggleDropdown(cat.id)}
                   >
                     {cat.name} <ArrowDown3 size={12} variant="Bulk" />
                   </button>
 
                   <ul
+                    id={`dropdown-${cat.id}`}
                     className="dropdown-menu rounded-0"
-                    aria-labelledby={`cat${cat.id}`}
+                    style={{ position: 'static', width: '100%', border: 'none', padding: '0.5rem 0 0.5rem 1rem', display: 'none' }}
                   >
                     {cat.sub.map((sub, index) => (
                       <li

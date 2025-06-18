@@ -62,21 +62,34 @@
 
 /* New ASOS-style footer styles */
 .footer {
-  font-family: 'Arial', sans-serif;
-  color: #2d2d2d;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
+  color: #333;
+  font-family: inherit;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #f0f0f0;
 }
 
 .footerMain {
-  padding: 40px 0;
-  background-color: #eee;
+  background-color: #ffffff;
 }
 
 .footerHeading {
-  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.footerHeading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #57aecf; /* Primary color */
 }
 
 .footerLinks {
@@ -85,105 +98,197 @@
   margin: 0;
 }
 
-.footerLinks li {
-  margin-bottom: 10px;
-}
-
 .footerLink {
-  color: #666;
+  color: #555;
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.7rem;
+  transition: all 0.2s ease;
 }
 
 .footerLink:hover {
-  color: #000;
+  color: #57aecf; /* Primary color */
+  text-decoration: none;
+  transform: translateX(3px);
 }
 
 .countrySelector {
-  font-size: 14px;
-  margin-bottom: 15px;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .currentCountry {
-  font-weight: 600;
+  font-weight: 700;
+  color: #333;
 }
 
 .changeLink {
-  color: #666;
+  color: #57aecf;
   text-decoration: none;
+  font-size: 0.8rem;
   font-weight: 600;
+  padding: 4px 10px;
+  background-color: rgba(87, 174, 207, 0.1);
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .changeLink:hover {
-  text-decoration: underline;
+  background-color: rgba(87, 174, 207, 0.2);
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .internationalSites {
-  margin-top: 20px;
+  margin-top: 1.2rem;
 }
 
 .smallText {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+  font-weight: 500;
 }
 
 .flagsContainer {
   display: flex;
+  gap: 15px;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
 .flagLink {
-  display: inline-block;
-  border: 1px solid #ddd;
-  border-radius: 2px;
+  display: block;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.socialIcons {
+.flagLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.socialLinks {
   display: flex;
-  gap: 15px;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .socialLink {
-  display: inline-block;
+  color: #333;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #57aecf;
+  transform: translateY(-3px);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
 }
 
 .paymentMethods {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
   gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-.paymentIcon {
-  display: inline-block;
+.paymentMethod {
+  width: 40px;
+  height: 25px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.paymentMethod:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Contact Form Styles */
+.contactSection {
+  background-color: #f9fbfd;
+  border-top: 1px solid #eef2f6;
+  padding: 30px 0;
+}
+
+.contactForm {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.formInput {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.formInput:focus {
+  border-color: #57aecf;
+  box-shadow: 0 0 0 3px rgba(87, 174, 207, 0.1);
+}
+
+.submitButton {
+  background-color: #57aecf;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #4a9ab8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton:disabled {
+  background-color: #a0c8d8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .footerBottom {
-  background-color: #2d2d2d;
-  color: #fff;
-  font-size: 12px;
+  background-color: #ffffff;
+  border-top: 1px solid #eef2f6;
 }
 
 .copyright {
   margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
 }
 
 .footerBottomLink {
-  color: #fff;
+  color: #57aecf;
   text-decoration: none;
-  margin: 0 5px;
+  font-size: 0.85rem;
+  margin: 0 0.5rem;
+  transition: all 0.2s ease;
 }
 
 .footerBottomLink:hover {
-  text-decoration: underline;
+  color: #4a9ab8;
+  text-decoration: none;
 }
 
 .divider {
-  color: #666;
-  margin: 0 5px;
+  color: #e0e0e0;
+  margin: 0 0.5rem;
 }
 
