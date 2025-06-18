@@ -8,34 +8,19 @@ import categories from "@/components/utils/categories";
 
 export default function CollapsedNavbar({ totalCart, emitShowSearch }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdowns, setOpenDropdowns] = useState({});
   const router = useRouter();
   const { loading, authUser, logOut } = useAuth();
 
   // toggle slide navbar
   const toggleNavbar = () => setIsOpen(!isOpen);
   
-  // Add custom styling for dropdowns
-  useEffect(() => {
-    // Add custom CSS to handle dropdown visibility
-    const style = document.createElement('style');
-    style.innerHTML = `
-      .dropdown-menu.show {
-        display: block !important;
-      }
-    `;
-    document.head.appendChild(style);
-    
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
   // Function to toggle dropdown
   const toggleDropdown = (id) => {
-    const dropdown = document.getElementById(`dropdown-${id}`);
-    if (dropdown) {
-      dropdown.classList.toggle('show');
-    }
+    setOpenDropdowns(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
 
   return (
@@ -79,7 +64,7 @@ export default function CollapsedNavbar({ totalCart, emitShowSearch }) {
                   <Bag2 variant="Bulk" />
                   {parseInt(totalCart) > 0 && (
                     <span
-                      class="position-absolute translate-middle bg_blue border border-light rounded-circle"
+                      className="position-absolute translate-middle bg_blue border border-light rounded-circle"
                       style={{
                         padding: "0.35rem",
                         bottom: "-8px",
@@ -134,23 +119,21 @@ export default function CollapsedNavbar({ totalCart, emitShowSearch }) {
                     type="button"
                     onClick={() => toggleDropdown(cat.id)}
                   >
-                    {cat.name} <ArrowDown3 size={12} variant="Bulk" />
+                    {cat.name} <ArrowDown3 size={12} variant="Bulk" className={openDropdowns[cat.id] ? styles.rotate_icon : ""} />
                   </button>
 
                   <ul
-                    id={`dropdown-${cat.id}`}
-                    className="dropdown-menu rounded-0"
-                    style={{ position: 'static', width: '100%', border: 'none', padding: '0.5rem 0 0.5rem 1rem', display: 'none' }}
+                    className={`${styles.mobile_dropdown} ${openDropdowns[cat.id] ? styles.show : ""}`}
                   >
                     {cat.sub.map((sub, index) => (
                       <li
                         key={sub.id}
-                        className={`m-2 ${index === 0 && "mt-0"} ${
+                        className={`${styles.mobile_dropdown_item} ${index === 0 && "mt-0"} ${
                           index === cat.sub.length - 1 && "mb-0"
                         }`}
                       >
                         <Link
-                          className={`${styles.dropdown_item} blue d-flex`}
+                          className={`${styles.dropdown_item} blue d-flex align-items-center`}
                           href={`/category/${sub.parentId}/${sub.id}`}
                         >
                           <img

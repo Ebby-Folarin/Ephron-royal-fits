@@ -106,3 +106,24 @@
 .dropdownSmallText {
   font-size: 0.75rem;
 }
+
+/* Mobile dropdown menu styles */
+.mobile_dropdown {
+  display: none;
+  padding: 0.5rem 0 0.5rem 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.mobile_dropdown.show {
+  display: block;
+}
+
+.mobile_dropdown_item {
+  padding: 0.5rem 0;
+}
+
+.rotate_icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
