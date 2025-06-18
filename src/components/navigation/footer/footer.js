@@ -282,7 +282,7 @@ export default function Footer() {
               </p>
 
               <div className={styles.internationalSites}>
-                <p className={styles.smallText}>our international sites:</p>
+                {/* <p className={styles.smallText}>our international sites:</p> */}
                 <div className={styles.flagsContainer}>
                   <Link href="#" className={styles.flagLink}>
                     <Image
