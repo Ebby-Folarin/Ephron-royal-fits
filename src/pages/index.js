@@ -67,6 +67,39 @@ export default function HomePage() {
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
 
+  // Function to handle touch start event
+  const handleTouchStart = (e, carouselRef) => {
+    if (!carouselRef.current) return;
+    
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+    
+    // Pause animation while dragging
+    carouselRef.current.style.animationPlayState = 'paused';
+  };
+
+  // Function to handle touch end event
+  const handleTouchEnd = (carouselRef) => {
+    if (!isDragging) return;
+    
+    setIsDragging(false);
+    
+    // Resume animation
+    if (carouselRef.current) {
+      carouselRef.current.style.animationPlayState = 'running';
+    }
+  };
+
+  // Function to handle touch move event
+  const handleTouchMove = (e, carouselRef) => {
+    if (!isDragging || !carouselRef.current) return;
+    
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   // Add event listeners when component mounts
   useEffect(() => {
     const topCarousel = topCarouselRef.current;
@@ -284,14 +317,21 @@ export default function HomePage() {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
-          .category-carousel::-webkit-scrollbar {
+          @keyframes scroll-horizontal {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .category-carousel::-webkit-scrollbar,
+          .category-horizontal-track::-webkit-scrollbar {
             display: none;
           }
-          .category-carousel {
+          .category-carousel,
+          .category-horizontal-track {
             -ms-overflow-style: none;
             scrollbar-width: none;
           }
-          .category-carousel:hover {
+          .category-carousel:hover,
+          .category-horizontal-track:hover {
             animation-play-state: paused;
           }
           .category-label {
@@ -309,15 +349,19 @@ export default function HomePage() {
             color: white;
             text-transform: uppercase;
             font-family: 'Julius Sans One', sans-serif;
+            transition: all 0.3s ease;
           }
           .category-text.dark {
             color: #333;
           }
-          .category-card:hover .category-label {
+          .category-card:hover .category-label,
+          .category-card-horizontal:hover .category-label {
             background: linear-gradient(180deg, rgba(87,174,207,0.0) 0%, rgba(87,174,207,0.85) 100%);
           }
-          .category-card:hover .category-text {
+          .category-card:hover .category-text,
+          .category-card-horizontal:hover .category-text {
             color: white;
+            letter-spacing: 3px;
           }
         `}</style>
 
@@ -372,6 +416,7 @@ export default function HomePage() {
 
         <div className="category-horizontal-scroll container-fluid mb-5 position-relative" style={{ overflow: 'hidden' }}>
           <div
+            ref={bottomCarouselRef}
             className="category-horizontal-track d-flex flex-row gap-3 py-2"
             style={{
               width: 'max-content',
@@ -379,8 +424,12 @@ export default function HomePage() {
               display: 'flex',
               alignItems: 'stretch',
               gap: '1rem',
-              cursor: 'grab',
+              cursor: isDragging ? 'grabbing' : 'grab',
             }}
+            onMouseDown={(e) => handleMouseDown(e, bottomCarouselRef)}
+            onMouseLeave={() => handleMouseLeave(bottomCarouselRef)}
+            onMouseUp={() => handleMouseUp(bottomCarouselRef)}
+            onMouseMove={(e) => handleMouseMove(e, bottomCarouselRef)}
           >
             {/* Duplicate the set for infinite loop effect */}
             {[1,2].map((dup) => (
