@@ -81,7 +81,7 @@ export default function Products({
 
       return () => unsubscribe();
     }
-  }, [length, title, tag, category, sub_category]);
+  }, [length, title, tag, category, sub_category, random]);
 
   // useEffect(() => {
   //   let q;

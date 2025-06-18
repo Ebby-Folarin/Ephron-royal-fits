@@ -1,7 +1,7 @@
 import toCurrency from "@/components/utils/toCurrency";
 import nodemailer from "nodemailer";
 
-export default async (req, res) => {
+const sendOrderCancelled = async (req, res) => {
   if (req.method === "POST") {
     const { order, email } = req.body;
 
@@ -16,9 +16,9 @@ export default async (req, res) => {
     });
 
     const mailOptions = {
-      from: "Ephron Royal 'fits <ephronroyalfits@gmail.com>",
+      from: "Ephron Royal &apos;fits <ephronroyalfits@gmail.com>",
       to: email,
-      subject: "Order cancelled - Ephron Royal 'fits",
+      subject: "Order cancelled - Ephron Royal &apos;fits",
       html: `
         <div>
           <div align="center">
@@ -75,3 +75,5 @@ export default async (req, res) => {
     res.status(405).end();
   }
 };
+
+export default sendOrderCancelled;

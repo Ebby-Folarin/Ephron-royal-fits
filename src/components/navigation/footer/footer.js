@@ -55,7 +55,7 @@ export default function Footer() {
                 <li><Link href="/about" className={styles.footerLink}>about us</Link></li>
                 <li><Link href="/careers" className={styles.footerLink}>careers at ephron royal fits</Link></li>
                 <li><Link href="/corporate-responsibility" className={styles.footerLink}>corporate responsibility</Link></li>
-                <li><Link href="/investors" className={styles.footerLink}>investors' site</Link></li>
+                <li><Link href="/investors" className={styles.footerLink}>investors&apos; site</Link></li>
               </ul>
             </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
             {/* SHOPPING FROM */}
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>SHOPPING FROM:</h6>
-              <p className={styles.countrySelector}>you're in <span className={styles.currentCountry}>nigeria</span> <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
+              <p className={styles.countrySelector}>you&apos;re in <span className={styles.currentCountry}>nigeria</span> <Link href="/country-selector" className={styles.changeLink}>CHANGE</Link></p>
               
               <div className={styles.internationalSites}>
                 <p className={styles.smallText}>our international sites:</p>
@@ -135,7 +135,7 @@ export default function Footer() {
           <div className="row align-items-center">
             <div className="col-md-5">
               <h4 className="fw-bold mb-3">get in touch</h4>
-              <p className="mb-4">have questions or feedback? we'd love to hear from you!</p>
+              <p className="mb-4">have questions or feedback? we&apos;d love to hear from you!</p>
               <div className="d-flex align-items-center mb-3">
                 <DirectSend size={22} color="#57aecf" variant="Bold" className="me-3" />
                 <span>ephronroyalfits@gmail.com</span>

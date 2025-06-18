@@ -1,7 +1,7 @@
 import toCurrency from "@/components/utils/toCurrency";
 import nodemailer from "nodemailer";
 
-export default async (req, res) => {
+const sendOrderPlaced = async (req, res) => {
   if (req.method === "POST") {
     const { order, email } = req.body;
 
@@ -16,15 +16,15 @@ export default async (req, res) => {
     });
 
     const mailOptions = {
-      from: "Ephron Royal 'fits <ephronroyalfits@gmail.com>",
+      from: "Ephron Royal &apos;fits <ephronroyalfits@gmail.com>",
       to: email,
-      subject: "Order placed - Ephron Royal 'fits",
+      subject: "Order placed - Ephron Royal &apos;fits",
       html: `
         <div>
           <div align="center">
             <img src="https://ephronroyalfits.vercel.app/logo/png/logo_trans.png" alt="logo" width="100"/>
-            <h2>Your order has been placed</h2>
-            <p>Your order has been received. Here is some information about your package</p>
+            <h2>Your order is placed</h2>
+            <p>Your order is placed. Here is some information about your package</p>
             <br />
             <h4>Order ID: #${order.id}</h4>
           </div>
@@ -75,3 +75,5 @@ export default async (req, res) => {
     res.status(405).end();
   }
 };
+
+export default sendOrderPlaced;
