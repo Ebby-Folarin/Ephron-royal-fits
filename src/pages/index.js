@@ -477,11 +477,14 @@ export default function HomePage() {
             onMouseLeave={() => handleMouseLeave(bottomCarouselRef)}
             onMouseUp={() => handleMouseUp(bottomCarouselRef)}
             onMouseMove={(e) => handleMouseMove(e, bottomCarouselRef)}
+            onTouchStart={(e) => handleTouchStart(e, bottomCarouselRef)}
+            onTouchEnd={() => handleTouchEnd(bottomCarouselRef)}
+            onTouchMove={(e) => handleTouchMove(e, bottomCarouselRef)}
           >
             {/* Duplicate the set for infinite loop effect */}
             {[1,2].map((dup) => (
               <div className="d-flex" key={dup}>
-                <div className="col-10 col-sm-6 col-md-3 flex-shrink-0 p-0" style={{ minWidth: 250 }}>
+                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
                   <div className="position-relative me-1 mb-2 category-card-horizontal">
                     <Link href="/category/sweatshirts">
                       <img
@@ -498,7 +501,7 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-10 col-sm-6 col-md-3 flex-shrink-0 p-0" style={{ minWidth: 250 }}>
+                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
                   <div className="position-relative ms-1 mb-2 mx-md-1 category-card-horizontal">
                     <Link href="/category/gems/necklaces">
                       <img
@@ -515,7 +518,7 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-10 col-sm-6 col-md-3 flex-shrink-0 p-0" style={{ minWidth: 250 }}>
+                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
                   <div className="position-relative me-1 mb-2 mx-md-1 category-card-horizontal">
                     <Link href="/category/hoodies">
                       <img
@@ -532,7 +535,7 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-10 col-sm-6 col-md-3 flex-shrink-0 p-0" style={{ minWidth: 250 }}>
+                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
                   <div className="position-relative ms-1 mb-2 category-card-horizontal">
                     <Link href="/category/essentials/bags">
                       <img
