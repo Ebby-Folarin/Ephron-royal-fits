@@ -57,8 +57,19 @@ export default function Footer() {
                   color="#57aecf"
                   variant="Bold"
                   className="me-3"
+                  style={{ cursor: "pointer" }}
+                  onClick={() =>
+                    window.open("https://wa.me/2347063869144", "_blank")
+                  }
                 />
-                <span>+234-706-386-9144</span>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() =>
+                    window.open("https://wa.me/2347063869144", "_blank")
+                  }
+                >
+                  WhatsApp: +234-706-386-9144
+                </span>
               </div>
             </div>
             <div className="col-md-7">
@@ -109,12 +120,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Social Media and Payment Methods */}
       <div className="container py-4 border-top border-bottom">
         <div className="row align-items-center">
           <div className="col-md-6 mb-3 mb-md-0">
-            
             <div className={styles.socialIcons}>
               <Link
                 href="https://www.facebook.com/profile.php?id=61565968947843&mibextid=LQQJ4d"
@@ -323,14 +333,25 @@ export default function Footer() {
               </div>
 
               <div className="mt-4">
-                <div className="d-flex align-items-center mb-2">
+                <div className="d-flex align-items-center">
                   <Call
-                    size={18}
+                    size={22}
                     color="#57aecf"
                     variant="Bold"
-                    className="me-2"
+                    className="me-3"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      window.open("https://wa.me/2347063869144", "_blank")
+                    }
                   />
-                  <span className="fw-bold">+234-706-386-9144</span>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      window.open("https://wa.me/2347063869144", "_blank")
+                    }
+                  >
+                    WhatsApp: +234-706-386-9144
+                  </span>
                 </div>
                 <p className="small text-muted">
                   Customer support available mon-fri, 9am-5pm
