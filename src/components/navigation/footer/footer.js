@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "@/components/navigation/footer/Footer.module.css";
-import { Call, DirectSend } from "iconsax-react";
+import { Call, DirectSend, Whatsapp } from "iconsax-react";
 import Loader from "@/components/loader/loader";
 import { doc, setDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase/fire_config";
@@ -52,7 +52,7 @@ export default function Footer() {
                 <span>ephronroyalfits@gmail.com</span>
               </div>
               <div className="d-flex align-items-center">
-                <Call
+                <Whatsapp
                   size={22}
                   color="#57aecf"
                   variant="Bold"
@@ -334,7 +334,7 @@ export default function Footer() {
 
               <div className="mt-4">
                 <div className="d-flex align-items-center">
-                  <Call
+                  <Whatsapp
                     size={22}
                     color="#57aecf"
                     variant="Bold"
@@ -350,7 +350,7 @@ export default function Footer() {
                       window.open("https://wa.me/2347063869144", "_blank")
                     }
                   >
-                    WhatsApp: +234-706-386-9144
+                   +234-706-386-9144
                   </span>
                 </div>
                 <p className="small text-muted">
