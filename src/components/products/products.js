@@ -23,6 +23,7 @@ export default function Products({
   category,
   sub_category,
   random,
+  gender, // Add this new prop
 }) {
   const { addSavedItem, isInSaved, removeSavedItem } = useSaved();
   const [hoveredProductId, setHoveredProductId] = useState(null);
@@ -33,7 +34,15 @@ export default function Products({
   useEffect(() => {
     let q;
 
-    if (title) {
+    if (gender) {
+      // Use the gender prop directly if provided
+      q = query(
+        collection(db, "products"),
+        where("gender", "==", gender.toLowerCase()),
+        orderBy("addedOn", "desc"),
+        limit(length)
+      );
+    } else if (title) {
       if (title.toLowerCase() === "women" || title.toLowerCase() === "men") {
         q = query(
           collection(db, "products"),
@@ -72,16 +81,24 @@ export default function Products({
           q = query(collection(db, "products"), orderBy("addedOn"));
         }
       }
-
-      const unsubscribe = onSnapshot(q, (snapshot) => {
-        const data = snapshot.docs.map((doc) => doc.data());
-        if (random) setProducts(shuffleArray(data));
-        else setProducts(data);
-      });
-
-      return () => unsubscribe();
+    } else if (length > 0) {
+      q = query(
+        collection(db, "products"),
+        orderBy("addedOn", "desc"),
+        limit(length)
+      );
+    } else {
+      q = query(collection(db, "products"), orderBy("addedOn"));
     }
-  }, [length, title, tag, category, sub_category, random]);
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const data = snapshot.docs.map((doc) => doc.data());
+      if (random) setProducts(shuffleArray(data));
+      else setProducts(data);
+    });
+
+    return () => unsubscribe();
+  }, [length, title, tag, category, sub_category, random, gender]);
 
   // useEffect(() => {
   //   let q;
@@ -141,7 +158,7 @@ export default function Products({
           {products.map((product, index) => (
             <div
               key={index}
-              className="col-md-3"
+              className="col-md-5 col-lg-6" // Changed from col-md-3 to col-md-6 col-lg-4
               onMouseEnter={() => setHoveredProductId(product.id)}
               onMouseLeave={() => setHoveredProductId(null)}
             >

@@ -412,56 +412,50 @@ export default function HomePage() {
           }
         `}</style>
 
-        <Products
-          className="mt-5"
-          length={8}
-          title="MEN"
-          category={null}
-          random={true}
-        />
-
-        {/* <Products
-          length={4}
-          title="ACCESSORIES"
-          tag={null}
-          category="accessories"
-          random={false}
-        />
-
-        {/* <div className="container">
+        {/* Replace the separate Products components with this new layout */}
+        <div className="container mt-5 mb-5">
           <div className="row">
-            <div className="col-12 text-center" style={{ margin: "8rem 0rem" }}>
-              <img
-                src="images/vg.png"
-                alt="image"
-                width="175"
-                className="object-fit-cover me-3"
-              />
-              <img
-                src="images/hg.png"
-                alt="image"
-                width="175"
-                className="object-fit-cover me-3"
-              />
-              <img
-                src="images/ad.png"
-                alt="image"
-                width="175"
-                className="object-fit-cover"
-              />
+            {/* MEN column */}
+            <div className="col-md-6">
+              <div className="row mb-4">
+                <div className="col-12">
+                  <h5 className="fw-bold" style={{ fontFamily: 'Julius Sans One, sans-serif', letterSpacing: '1.5px' }}>MEN</h5>
+                </div>
+              </div>
+              <div className="men-products">
+                <Products
+                  className=""
+                  length={8}
+                  title=""
+                  gender="men"
+                  category={null}
+                  random={true}
+                />
+              </div>
+            </div>
+            
+            {/* WOMEN column */}
+            <div className="col-md-6">
+              <div className="row mb-4">
+                <div className="col-12">
+                  <h5 className="fw-bold" style={{ fontFamily: 'Julius Sans One, sans-serif', letterSpacing: '1.5px' }}>WOMEN</h5>
+                </div>
+              </div>
+              <div className="women-products">
+                <Products
+                  className=""
+                  length={8}
+                  title=""
+                  gender="women"
+                  category={null}
+                  random={true}
+                />
+              </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
-        <Products
-          className="mb-5"
-          length={8}
-          title="WOMEN"
-          category={null}
-          random={true}
-        />
-
-        <div className="category-horizontal-scroll container-fluid mb-5 position-relative" style={{ overflow: 'hidden' }}>
+        <div className="category-horizontal-scroll container-fluid mb-5 position-relative" style={{ overflow: 'hidden' }}>          
           <div
             ref={bottomCarouselRef}
             className="category-horizontal-track d-flex flex-row gap-3 py-2"
@@ -470,7 +464,7 @@ export default function HomePage() {
               animation: 'scroll-horizontal 25s linear infinite',
               display: 'flex',
               alignItems: 'stretch',
-              gap: '1rem',
+              gap: '0.5rem', // Reduced gap for mobile
               cursor: isDragging ? 'grabbing' : 'grab',
             }}
             onMouseDown={(e) => handleMouseDown(e, bottomCarouselRef)}
@@ -484,14 +478,14 @@ export default function HomePage() {
             {/* Duplicate the set for infinite loop effect */}
             {[1,2].map((dup) => (
               <div className="d-flex" key={dup}>
-                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
+                <div className="category-card-container" style={{ minWidth: 'min(220px, 70vw)' }}>
                   <div className="position-relative me-1 mb-2 category-card-horizontal">
                     <Link href="/category/sweatshirts">
                       <img
                         src="images/sweatshirts.png"
                         alt="image"
                         width="100%"
-                        height={467}
+                        height={350} // Reduced height for mobile
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
@@ -501,14 +495,14 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
+                <div className="category-card-container" style={{ minWidth: 'min(220px, 70vw)' }}>
                   <div className="position-relative ms-1 mb-2 mx-md-1 category-card-horizontal">
                     <Link href="/category/gems/necklaces">
                       <img
                         src="images/necklaces_2.png"
                         alt="image"
                         width="100%"
-                        height={467}
+                        height={350} // Reduced height for mobile
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
@@ -518,14 +512,14 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
+                <div className="category-card-container" style={{ minWidth: 'min(220px, 70vw)' }}>
                   <div className="position-relative me-1 mb-2 mx-md-1 category-card-horizontal">
                     <Link href="/category/hoodies">
                       <img
                         src="images/hoodies.png"
                         alt="image"
                         width="100%"
-                        height={467}
+                        height={350} // Reduced height for mobile
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />
@@ -535,14 +529,14 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0 p-0" style={{ minWidth: 'min(250px, 80vw)' }}>
+                <div className="category-card-container" style={{ minWidth: 'min(220px, 70vw)' }}>
                   <div className="position-relative ms-1 mb-2 category-card-horizontal">
                     <Link href="/category/essentials/bags">
                       <img
                         src="images/bags.png"
                         alt="image"
                         width="100%"
-                        height={467}
+                        height={350} // Reduced height for mobile
                         className="object-fit-cover"
                         style={{ objectPosition: "top" }}
                       />

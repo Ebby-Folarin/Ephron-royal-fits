@@ -57,6 +57,69 @@ const categories = [
     ],
   },
   {
+    id: "formals",
+    parentId: "formals",
+    name: "Formals",
+    sub: [
+      {
+        id: "suits",
+        parentId: "formals",
+        image: "/images/fashion.png", // You may want to update this with a more appropriate image
+        name: "suits",
+        sub: [],
+      },
+      {
+        id: "blazers",
+        parentId: "formals",
+        image: "/images/fashion.png", // You may want to update this with a more appropriate image
+        name: "blazers",
+        sub: [],
+      },
+      {
+        id: "pants",
+        parentId: "formals",
+        image: "/images/fashion.png", // You may want to update this with a more appropriate image
+        name: "pants",
+        sub: [],
+      },
+    ],
+  },
+  {
+    id: "beauty",
+    parentId: "beauty",
+    name: "Beauty",
+    sub: [
+      {
+        id: "hair",
+        parentId: "beauty",
+        image: "/images/hairclips.png", // You may want to update this with a more appropriate image
+        name: "hair",
+        sub: [],
+      },
+      {
+        id: "nails",
+        parentId: "beauty",
+        image: "/images/fashion.png", // You may want to update this with a more appropriate image
+        name: "nails",
+        sub: [],
+      },
+      {
+        id: "makeup",
+        parentId: "beauty",
+        image: "/images/fashion.png", // You may want to update this with a more appropriate image
+        name: "makeup",
+        sub: [],
+      },
+      {
+        id: "skincare",
+        parentId: "beauty",
+        image: "/images/fashion.png", // You may want to update this with a more appropriate image
+        name: "skincare",
+        sub: [],
+      },
+    ],
+  },
+  {
     id: "gems",
     parentId: "gems",
     name: "Gems",
