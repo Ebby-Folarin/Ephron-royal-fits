@@ -190,24 +190,24 @@ export default function Footer() {
               <ul className={styles.footerLinks}>
                 <li>
                   <Link href="/help" className={styles.footerLink}>
-                    help
+                    Help
                   </Link>
                 </li>
                 <li>
                   <Link href="/track-order" className={styles.footerLink}>
-                    track order
+                    Track order
                   </Link>
                 </li>
                 <li>
                   <Link href="/delivery-returns" className={styles.footerLink}>
-                    delivery & returns
+                    Delivery & returns
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/sitemap" className={styles.footerLink}>
                     sitemap
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -217,27 +217,27 @@ export default function Footer() {
               <ul className={styles.footerLinks}>
                 <li>
                   <Link href="/about" className={styles.footerLink}>
-                    about us
+                    About us
                   </Link>
                 </li>
                 <li>
                   <Link href="/careers" className={styles.footerLink}>
-                    careers at ephron royal fits
+                    Careers at ephron royal fits
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="/corporate-responsibility"
                     className={styles.footerLink}
                   >
                     corporate responsibility
                   </Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link href="/investors" className={styles.footerLink}>
                     investors&apos; site
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -247,26 +247,26 @@ export default function Footer() {
                 MORE FROM EPHRON ROYAL FITS
               </h6>
               <ul className={styles.footerLinks}>
-                <li>
+                {/* <li>
                   <Link href="/mobile-apps" className={styles.footerLink}>
                     mobile and ephron royal fits apps
                   </Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link href="/gift-vouchers" className={styles.footerLink}>
                     gift vouchers
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/black-friday" className={styles.footerLink}>
                     black friday
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/thrift" className={styles.footerLink}>
                     ephron royal fits x thrift+
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -274,8 +274,8 @@ export default function Footer() {
             <div className="col-md-3 mb-4">
               <h6 className={styles.footerHeading}>SHOPPING FROM:</h6>
               <p className={styles.countrySelector}>
-                you&apos;re in{" "}
-                <span className={styles.currentCountry}>nigeria</span>{" "}
+                You&apos;re in{" "}
+                <span className={styles.currentCountry}>Nigeria</span>{" "}
                 <Link href="/country-selector" className={styles.changeLink}>
                   CHANGE
                 </Link>
@@ -283,7 +283,7 @@ export default function Footer() {
 
               <div className={styles.internationalSites}>
                 {/* <p className={styles.smallText}>our international sites:</p> */}
-                <div className={styles.flagsContainer}>
+                {/* <div className={styles.flagsContainer}>
                   <Link href="#" className={styles.flagLink}>
                     <Image
                       src="/images/facebook.png"
@@ -320,7 +320,7 @@ export default function Footer() {
                       style={{ objectFit: "cover" }}
                     />
                   </Link>
-                </div>
+                </div> */}
               </div>
 
               <div className="mt-4">
