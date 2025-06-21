@@ -114,7 +114,7 @@ export default function Footer() {
       <div className="container py-4 border-top border-bottom">
         <div className="row align-items-center">
           <div className="col-md-6 mb-3 mb-md-0">
-            <h6 className={styles.footerHeading}>CONNECT WITH US</h6>
+            
             <div className={styles.socialIcons}>
               <Link
                 href="https://www.facebook.com/profile.php?id=61565968947843&mibextid=LQQJ4d"
@@ -158,7 +158,6 @@ export default function Footer() {
             </div>
           </div>
           <div className="col-md-6">
-            <h6 className={styles.footerHeading}>PAYMENT METHODS</h6>
             <div className={styles.paymentMethods}>
               <Image
                 src="/images/paystack.png"
@@ -167,13 +166,13 @@ export default function Footer() {
                 width={120}
                 height={30}
               />
-              <Image
+              {/* <Image
                 src="/images/apple_pay.svg"
                 alt="apple pay"
                 width={60}
                 height={30}
                 className={styles.paymentIcon}
-              />
+              /> */}
               {/* Add more payment methods as needed */}
             </div>
           </div>
@@ -259,7 +258,7 @@ export default function Footer() {
                 </li> */}
                 <li>
                   <Link href="/black-friday" className={styles.footerLink}>
-                    black friday
+                    Black friday
                   </Link>
                 </li>
                 {/* <li>
@@ -334,7 +333,7 @@ export default function Footer() {
                   <span className="fw-bold">+234-706-386-9144</span>
                 </div>
                 <p className="small text-muted">
-                  customer support available mon-fri, 9am-5pm
+                  Customer support available mon-fri, 9am-5pm
                 </p>
               </div>
             </div>
