@@ -198,17 +198,17 @@ export default function Footer() {
               <h6 className={styles.footerHeading}>HELP & INFORMATION</h6>
               <ul className={styles.footerLinks}>
                 <li>
-                  <Link href="/help" className={styles.footerLink}>
+                  <Link href="" className={styles.footerLink}>
                     Help
                   </Link>
                 </li>
                 <li>
-                  <Link href="/track-order" className={styles.footerLink}>
+                  <Link href="" className={styles.footerLink}>
                     Track order
                   </Link>
                 </li>
                 <li>
-                  <Link href="/delivery-returns" className={styles.footerLink}>
+                  <Link href="" className={styles.footerLink}>
                     Delivery & returns
                   </Link>
                 </li>
