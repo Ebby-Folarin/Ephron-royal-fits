@@ -461,7 +461,7 @@ export default function HomePage() {
             className="category-horizontal-track d-flex flex-row gap-3 py-2"
             style={{
               width: 'max-content',
-              animation: 'scroll-horizontal 25s linear infinite',
+              // animation: 'scroll-horizontal 25s linear infinite', // Remove this line
               display: 'flex',
               alignItems: 'stretch',
               gap: '0.5rem', // Reduced gap for mobile

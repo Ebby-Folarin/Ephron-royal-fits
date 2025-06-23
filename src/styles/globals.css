@@ -700,3 +700,26 @@
     padding: 0.4rem 0.5rem;
   }
 }
+/* Add this to the end of your globals.css file */
+
+/* Navbar font styling */
+.navbar .nav-link, 
+.navbar .dropdown-menu .d-flex,
+.navbar .navbar-brand {
+  font-family: 'Julius Sans One', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .dropdown-menu .d-flex:hover {
+  letter-spacing: 2px;
+}
+
+/* Mobile navbar styling */
+.collapsed_menu_header,
+.collapsed_menu a {
+  font-family: 'Julius Sans One', sans-serif;
+  letter-spacing: 1.5px;
+}
