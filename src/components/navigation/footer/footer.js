@@ -170,11 +170,11 @@ export default function Footer() {
           <div className="col-md-6">
             <div className={styles.paymentMethods}>
               <Image
-                src="/images/paystack.png"
-                alt="paystack"
-                className={styles.paymentIcon}
-                width={120}
-                height={30}
+                src="/images/flutterwave.png"
+                alt="Flutterwave"
+                title="Powered by Flutterwave"
+                width={100}
+                height={40}
               />
               {/* <Image
                 src="/images/apple_pay.svg"
@@ -322,8 +322,8 @@ export default function Footer() {
                   </Link>
                   <Link href="#" className={styles.flagLink}>
                     <Image
-                      src="/images/paystack.png"
-                      alt="Canada"
+                      src="/images/nigeria.png"
+                      alt="Nigeria"
                       width={24}
                       height={16}
                       style={{ objectFit: "cover" }}

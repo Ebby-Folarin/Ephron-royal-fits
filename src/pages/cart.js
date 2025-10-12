@@ -102,7 +102,7 @@ export default function CartPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(lBSchema) }}
         />
       </Head>
-      <Script src="https://js.paystack.co/v1/inline.js" />
+      <Script src="https://checkout.flutterwave.com/v3.js" />
 
       <main>
         <Navbar emitShowSearch={handleShowSearch} />

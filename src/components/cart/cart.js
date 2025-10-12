@@ -11,7 +11,7 @@ import { db } from "@/firebase/fire_config";
 import { useState } from "react";
 import Loader from "@/components/loader/loader";
 import { v4 } from "uuid";
-
+} else toast.error("Sign in to place order.");
 export default function Cart() {
   const [loading, setLoading] = useState(false);
   const { items, clearCart } = useCart();
@@ -25,16 +25,23 @@ export default function Cart() {
     setLoading(true);
 
     if (authUser) {
-      const ref = v4();
-      let handler = PaystackPop.setup({
-        key: process.env.NEXT_PUBLIC_PAYSTACK_LIVE_PUBLIC_KEY,
-        email: authUser.email,
+  const ref = v4();
+
+  const config = {
+    public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY,
+    tx_ref: ref,
+    amount: totalPrice,
+    currency: 'NGN',
+    payment_options: 'card, banktransfer, ussd',
+    customer: {
+      email: authUser.email,
         amount: totalPrice * 100,
         ref: `${Math.floor(Math.random() * 1000000000 + 1)}`,
         label: "Ephron Order",
-        onClose: () => onCreateOrder(false, ref),
-        callback: (res) => onCreateOrder(true, res.reference),
-      });
+    onClose: () => onCreateOrder(false, ref),
+  });
+}
+
 
       handler.openIframe();
     } else toast.error("Sign in to place order.");

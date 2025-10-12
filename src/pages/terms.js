@@ -166,17 +166,15 @@ export default function TermsPage() {
 
               <h5 className="mb-2 fw-bold">PAYMENT METHOD</h5>
               <p>
-                Payment methods accepted by Ephron include Paystack, PayPal,
-                debit (Visa/MasterCard), and credit cards. Within 24 hours of
-                making your purchase, you will receive an automated order
-                confirmation email that contains the specifics of your
-                transaction once you have paid for it. This email may be
-                delivered to your SPAM or JUNK mailbox, depending on your email
-                security settings.
-              </p>
-
-              <p>
-                Please send an email to Ephronroyalfits@gmail.com if you have
+                <p>
+                  Payment methods accepted by Ephron include Flutterwave, debit (Visa/MasterCard),
+                  and credit cards. Within 24 hours of making your purchase, you will receive an
+                  automated order confirmation email that contains the specifics of your transaction
+                  once payment has been completed. This email may appear in your SPAM or JUNK
+                  mailbox, depending on your email security settings.
+                </p>
+          
+                Please send an email to support@ephronroyalfits.com if you have
                 not received your order confirmation email, and if you are
                 experiencing trouble checking out, and we will be pleased to
                 help.
@@ -206,7 +204,7 @@ export default function TermsPage() {
               </p>
 
               <p>
-                We&apos;ll ship using FedEx, Hiroshima, DHL, or another company.
+                We'll ship using FedEx, Hiroshima, DHL, or another company.
                 Although delivery windows cannot be guaranteed, deliveries
                 should arrive between one and five business days, depending on
                 your location.
@@ -236,7 +234,7 @@ export default function TermsPage() {
               <p>
                 If there is a need to resend your package because of
                 customer-related issues, there will be a redispatch fee. The
-                package&apos;s weight and destination may have an impact on this
+                package's weight and destination may have an impact on this
                 redispatch fee.
               </p>
 
@@ -246,7 +244,7 @@ export default function TermsPage() {
                 products you ordered. In the event that this happens, we will
                 notify you right away. If you would like to cancel your order on
                 your own, please email Ephronroyalfits@gmail.com and if
-                there&apos;s anything else.
+                there's anything else.
               </p>
 
               <h5 className="mb-2 fw-bold">MISSING PRODUCT</h5>
@@ -281,19 +279,21 @@ export default function TermsPage() {
               <h5 className="mb-2 fw-bold">REFUND POLICY</h5>
               <p>
                 In the event that a cancelled order has already been charged to
-                the customer&apos;s credit card, Ephron will refund the client
+                the customer's credit card, Ephron will refund the client
                 the full amount within 10 business days.
               </p>
 
               <p>
-                If you use Paystack or PayPal, you will need to wait three to
-                ten working days incase of any invalid/unsuccessful transaction.
+                If you use Flutterwave and your transaction is unsuccessful, 
+                please allow between 1 to 10 working days for your bank to 
+                process a reversal or refund. Most reversals occur 
+                automatically within 24–48 hours, depending on your bank.
               </p>
 
               <p>
-                Its also important that you&apos;re aware of Paystack&apos;s
-                gateway strategies, which require that the receiving account
-                number be changed for every new transaction.
+                It’s also important to note that Flutterwave’s payment gateway
+                 securely processes each transaction through encrypted channels,
+                  ensuring your details and funds remain protected at all times.
               </p>
 
               <p>
@@ -320,7 +320,7 @@ export default function TermsPage() {
 
               <p>
                 Ephron does not ask for private personal information, bank
-                account information, or details of any customer&apos;s
+                account information, or details of any customer's
                 identification.
               </p>
             </div>
