@@ -6,6 +6,7 @@ import CartItem from "@/components/cart/cart_item";
 import toCurrency from "@/components/utils/toCurrency";
 import { useAuth } from "@/firebase/fire_auth_context";
 import { toast } from "react-toastify";
+import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/firebase/fire_config";
 import { useState } from "react";
