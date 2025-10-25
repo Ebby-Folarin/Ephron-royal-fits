@@ -12,7 +12,11 @@ import { db } from "@/firebase/fire_config";
 import { useState } from "react";
 import Loader from "@/components/loader/loader";
 import { v4 } from "uuid";
-} else toast.error("Sign in to place order.");
+import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
+import { toast } from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
+
 export default function Cart() {
   const [loading, setLoading] = useState(false);
   const { items, clearCart } = useCart();
