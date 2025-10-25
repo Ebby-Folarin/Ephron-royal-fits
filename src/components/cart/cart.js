@@ -1,56 +1,27 @@
 import styles from "@/components/cart/Cart.module.css";
 import { ShoppingCart } from "iconsax-react";
 import Link from "next/link";
-import { useCart } from "@/components/cart/cart_context";
 import CartItem from "@/components/cart/cart_item";
 import toCurrency from "@/components/utils/toCurrency";
-import { useAuth } from "@/firebase/fire_auth_context";
-import { toast } from "react-toastify";
-import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
+import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
+import { toast } from "react-hot-toast";
+import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/firebase/fire_config";
 import { useState } from "react";
 import Loader from "@/components/loader/loader";
 import { v4 } from "uuid";
-import { useCart } from "@/context/CartContext";
-import { useAuth } from "@/context/AuthContext";
-import { toast } from "react-hot-toast";
-import { useAuth } from "@/context/AuthContext";
 
 export default function Cart() {
   const [loading, setLoading] = useState(false);
   const { items, clearCart } = useCart();
+  const { authUser } = useAuth();
+
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.cartQuantity,
     0
   );
-  const { authUser } = useAuth();
-
-  const makeOrder = () => {
-    setLoading(true);
-
-    if (authUser) {
-  const ref = v4();
-
-  const config = {
-    public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY,
-    tx_ref: ref,
-    amount: totalPrice,
-    currency: 'NGN',
-    payment_options: 'card, banktransfer, ussd',
-    customer: {
-      email: authUser.email,
-        amount: totalPrice * 100,
-        ref: `${Math.floor(Math.random() * 1000000000 + 1)}`,
-        label: "Ephron Order",
-    onClose: () => onCreateOrder(false, ref),
-  });
-}
-
-
-      handler.openIframe();
-    } else toast.error("Sign in to place order.");
-  };
 
   const onCreateOrder = async (isCompleted, ref) => {
     const docRef = doc(collection(db, "orders"));
@@ -67,47 +38,84 @@ export default function Cart() {
       addedOn: serverTimestamp(),
     };
 
-    await setDoc(docRef, orderDoc)
-      .then(async () => {
-        try {
-          const response = await fetch(
-            `/api/send_order_${isCompleted ? "placed" : "cancelled"}`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ order: orderDoc, email: authUser.email }),
-            }
-          );
-          if (response.ok && !isCompleted) toast.error("Order cancelled");
-
-          if (response.ok && isCompleted) {
-            toast.success("Order placed");
-            clearCart();
-          }
-        } catch (error) {
-          toast.error(`Something went wrong. Please try again later: ${error}`);
+    try {
+      await setDoc(docRef, orderDoc);
+      const response = await fetch(
+        `/api/send_order_${isCompleted ? "placed" : "cancelled"}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ order: orderDoc, email: authUser.email }),
         }
-      })
-      .catch((e) => toast.error(`Something is wrong: ${e.message}`))
-      .finally(() => setLoading(false));
+      );
+
+      if (response.ok && !isCompleted) toast.error("Order cancelled");
+      if (response.ok && isCompleted) {
+        toast.success("Order placed");
+        clearCart();
+      }
+    } catch (error) {
+      toast.error(`Something went wrong. Please try again later: ${error}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const makeOrder = () => {
+    if (!authUser) {
+      toast.error("Sign in to place order.");
+      return;
+    }
+
+    setLoading(true);
+
+    const ref = v4();
+    const config = {
+      public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY,
+      tx_ref: ref,
+      amount: totalPrice,
+      currency: "NGN",
+      payment_options: "card, banktransfer, ussd",
+      customer: {
+        email: authUser.email,
+        name: authUser.email.split("@")[0],
+      },
+      customizations: {
+        title: "Ephron Order",
+        description: "Secure checkout with Flutterwave",
+        logo: "https://ephronroyalfits.vercel.app/logo/png/logo_trans.png",
+      },
+      callback: function (response) {
+        if (response.status === "successful") {
+          onCreateOrder(true, ref);
+        } else {
+          onCreateOrder(false, ref);
+        }
+        closePaymentModal();
+      },
+      onClose: () => onCreateOrder(false, ref),
+    };
+
+    const handleFlutterPayment = useFlutterwave(config);
+    handleFlutterPayment({
+      callback: config.callback,
+      onClose: config.onClose,
+    });
   };
 
   return (
     <div style={{ marginTop: "6rem" }}>
-      {items.length == 0 && (
+      {items.length === 0 && (
         <div className="container my-5">
           <div className="row justify-content-center">
             <div className="col-sm-10 text-center">
               <ShoppingCart variant="Bulk" size={100} color="#57aecf" />
-
               <div className="my-4">
                 <h4>Your cart is empty!</h4>
-
                 <p className="text-muted m-0">
                   Browse and start ordering with a click.
                 </p>
               </div>
-
               <Link
                 href="/"
                 className="my-4 btn btn-lg btn-outline-primary rounded-0"
@@ -142,7 +150,7 @@ export default function Cart() {
                 </div>
 
                 <button
-                  onClick={() => makeOrder()}
+                  onClick={makeOrder}
                   disabled={loading}
                   className="btn btn-lg btn-dark border-0 rounded-0 w-100 mt-4"
                 >
