@@ -61,6 +61,36 @@ export default function Cart() {
     }
   };
 
+  // ✅ Move the hook here (top-level inside component)
+  const ref = v4();
+  const config = {
+    public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY,
+    tx_ref: ref,
+    amount: totalPrice,
+    currency: "NGN",
+    payment_options: "card, banktransfer, ussd",
+    customer: {
+      email: authUser?.email || "guest@ephronroyalfits.com",
+      name: authUser?.email?.split("@")[0] || "Guest",
+    },
+    customizations: {
+      title: "Ephron Order",
+      description: "Secure checkout with Flutterwave",
+      logo: "https://ephronroyalfits.vercel.app/logo/png/logo_trans.png",
+    },
+    callback: function (response) {
+      if (response.status === "successful") {
+        onCreateOrder(true, ref);
+      } else {
+        onCreateOrder(false, ref);
+      }
+      closePaymentModal();
+    },
+    onClose: () => onCreateOrder(false, ref),
+  };
+
+  const handleFlutterPayment = useFlutterwave(config); // ✅ called safely at top-level
+
   const makeOrder = () => {
     if (!authUser) {
       toast.error("Sign in to place order.");
@@ -69,34 +99,6 @@ export default function Cart() {
 
     setLoading(true);
 
-    const ref = v4();
-    const config = {
-      public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY,
-      tx_ref: ref,
-      amount: totalPrice,
-      currency: "NGN",
-      payment_options: "card, banktransfer, ussd",
-      customer: {
-        email: authUser.email,
-        name: authUser.email.split("@")[0],
-      },
-      customizations: {
-        title: "Ephron Order",
-        description: "Secure checkout with Flutterwave",
-        logo: "https://ephronroyalfits.vercel.app/logo/png/logo_trans.png",
-      },
-      callback: function (response) {
-        if (response.status === "successful") {
-          onCreateOrder(true, ref);
-        } else {
-          onCreateOrder(false, ref);
-        }
-        closePaymentModal();
-      },
-      onClose: () => onCreateOrder(false, ref),
-    };
-
-    const handleFlutterPayment = useFlutterwave(config);
     handleFlutterPayment({
       callback: config.callback,
       onClose: config.onClose,
